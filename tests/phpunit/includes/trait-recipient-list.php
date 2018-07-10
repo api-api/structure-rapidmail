@@ -8,7 +8,7 @@ trait Recipient_List {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	protected function create_recipient_list() {
+	protected function create_recipientlist() {
 		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipientlists', 'POST' );
 		$request->set_param('name', 'Test List' );
 		$response = $this->apiapi->send_request( $request );
@@ -21,15 +21,15 @@ trait Recipient_List {
 	/**
 	 * Deleting recipient list.
 	 *
-	 * @param int $recipient_list_id Recipient list id.
+	 * @param int $recipientlist_id Recipient list id.
 	 *
 	 * @return \APIAPI\Core\Request\Route_Response
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	protected function delete_recipient_list( $recipient_list_id ) {
+	protected function delete_recipientlist( $recipientlist_id ) {
 		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipientlists/(?P<id>[\\d]+)', 'DELETE' );
-		$request->set_param( 'id', $recipient_list_id );
+		$request->set_param( 'id', $recipientlist_id );
 		return $this->apiapi->send_request( $request );
 	}
 }
