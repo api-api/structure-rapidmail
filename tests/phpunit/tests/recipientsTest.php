@@ -3,12 +3,19 @@
 require_once dirname( dirname( __FILE__ ) ) . '/includes/bootstrap.php';
 
 class RecipientTests extends Rapidmail_TestCase {
+	use Recipient_List;
+
+	/**
+	 * Recipient List ID.
+	 *
+	 * @var int $recipient_list_id
+	 */
 	private $recipient_list_id;
 
 	/**
 	 * Setting up test.
 	 *
-	 * - Recipientlist and ID
+	 * - Recipient list and id
 	 */
 	public function setUp() {
 		parent::setUp();
@@ -18,43 +25,11 @@ class RecipientTests extends Rapidmail_TestCase {
 	/**
 	 * Tearing down test.
 	 *
-	 * - Recipientlist and ID
+	 * - Recipient list and id
 	 */
 	public function tearDown() {
 		parent::tearDown();
 		$this->delete_recipient_list( $this->recipient_list_id );
-	}
-
-	/**
-	 * Creating recipient list.
-	 *
-	 * @return int $id The ID of the recipient list.
-	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
-	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
-	 */
-	private function create_recipient_list() {
-		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipientlists', 'POST' );
-		$request->set_param('name', 'Test List' );
-		$response = $this->apiapi->send_request( $request );
-
-		$id = $response->get_param('id' );
-
-		return $id;
-	}
-
-	/**
-	 * Deleting recipient list.
-	 *
-	 * @param int $recipient_list_id Recipient list id.
-	 *
-	 * @return \APIAPI\Core\Request\Route_Response
-	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
-	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
-	 */
-	private function delete_recipient_list( $recipient_list_id ) {
-		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipientlists/(?P<id>[\\d]+)', 'DELETE' );
-		$request->set_param( 'id', $recipient_list_id );
-		return $this->apiapi->send_request( $request );
 	}
 
 	/**

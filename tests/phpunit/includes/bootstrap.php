@@ -14,6 +14,8 @@ require_once $root_dir . '/src/structure-rapidmail.php';
 require_once dirname(__FILE__ ) . '/test-structure-class.php';
 require_once dirname(__FILE__ ) . '/test-rapidmail-class.php';
 
+require_once dirname(__FILE__ ) . '/trait-recipient-list.php';
+
 // disable xdebug backtrace
 if ( function_exists( 'xdebug_disable' ) ) {
 	xdebug_disable();
