@@ -240,6 +240,231 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 					),
 				)
 			);
+
+			$this->routes['/recipients'] = array(
+				'methods' => array(
+					Method::GET  => array(
+						'description'          => 'Get a list of recipients',
+						'needs_authentication' => true,
+						'request_data_type'    => 'json',
+						'params'               => array(
+							'recipientlist_id'                  => array(
+								'description' => 'Recipientlist ID to get recipients from',
+								'type'        => 'integer'
+							),
+							'email'            => array(
+								'description' => 'Filter recipients by email address',
+								'type'        => 'string'
+							),
+							'foreign_id'            => array(
+								'description' => 'Filter recipients by foreign/external ID',
+								'type'        => 'string'
+							),
+							'page'         => array(
+								'description' => 'Page to load',
+								'type'        => 'integer'
+							),
+							'sort_by' => array(
+								'description' => 'Field to sort by, can be activated, created or updated',
+								'type'        => 'string'
+							),
+							'sort_order'             => array(
+								'description' => 'Order to sort in, can be asc or desc',
+								'type'        => 'string'
+							),
+							'status'             => array(
+								'description' => 'Filter by status. Can contain multiple values in comma-separated list (Available values: new, active, bounced, abused, deleted)',
+								'type'        => 'string'
+							),
+							'get_extra_big_fields'             => array(
+								'description' => 'Filter by stIf specified, extrabig fields will be returned for each recipient (Default value: no)',
+								'type'        => 'string'
+							),
+						),
+					),
+				),
+				Method::POST => array(
+					'description'          => 'Create a new recipient.',
+					'needs_authentication' => true,
+					'request_data_type'    => 'json',
+					'params'               => array(
+						'id'                      => array(
+							'description' => 'User Id (readOnly: true)',
+							'type'        => 'integer',
+							'required'    => false,
+						),
+						'email'                      => array(
+							'description' => 'Email address',
+							'type'        => 'string'
+						),
+						'recipientlist_id'           => array(
+							'description' => 'Recipientlist ID the recipient is assigned to',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'firstname'           => array(
+							'description' => 'Firstname (maxLength: 255)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'lastname'           => array(
+							'description' => 'Lastname (maxLength: 255)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'gender'           => array(
+							'description' => 'Gender (Available values: male, female)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'title'           => array(
+							'description' => 'Title (academic)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'zip'           => array(
+							'description' => 'Zipcode (maxLength: 7)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'birthdate'           => array(
+							'description' => 'Birthdate (example: 1974-01-01T00:00:00.000Z)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'foreign_id'           => array(
+							'description' => 'Foreign/external ID of record (maxLength: 255)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'mailtype'           => array(
+							'description' => 'Mailtype specifying if recipient wants text or html email (Available values: text, html)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra1'           => array(
+							'description' => 'Extra 1 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra2'           => array(
+							'description' => 'Extra 2 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra3'           => array(
+							'description' => 'Extra 3 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra4'           => array(
+							'description' => 'Extra 4 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra5'           => array(
+							'description' => 'Extra 5 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra6'           => array(
+							'description' => 'Extra 6 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra7'           => array(
+							'description' => 'Extra 7 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra8'           => array(
+							'description' => 'Extra 8 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra9'           => array(
+							'description' => 'Extra 9 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extra10'           => array(
+							'description' => 'Extra 10 (maxLength: 100)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig1'           => array(
+							'description' => 'Extra big 1 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig2'           => array(
+							'description' => 'Extra big 2 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig3'           => array(
+							'description' => 'Extra big 3 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig4'           => array(
+							'description' => 'Extra big 4 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig5'           => array(
+							'description' => 'Extra big 5 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig6'           => array(
+							'description' => 'Extra big 6 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig7'           => array(
+							'description' => 'Extra big 7 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig8'           => array(
+							'description' => 'Extra big 8 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig9'           => array(
+							'description' => 'Extra big 9 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'extrabig10'           => array(
+							'description' => 'Extra big 10 (maxLength: 65535)',
+							'type'        => 'string',
+							'required'    => false,
+						),
+						'created'   => array(
+							'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
+							'type'        => 'string'
+						),
+						'created_ip'   => array(
+							'description' => 'IP address recipient was created from. Will default to current remote IP if not given',
+							'type'        => 'string'
+						),
+						'created_hostname'   => array(
+							'description' => 'Hostname recipient was created from. Will default to current remote host if not given',
+							'type'        => 'string'
+						),
+						'activated'   => array(
+							'description' => 'Datetime recipient was activated (example: 2017-01-01 12:00:00)',
+							'type'        => 'string'
+						),
+						'status'   => array(
+							'description' => 'Recipient status (Available values: new, active, deleted, bounced, abused, deleted - readOnly:true)',
+							'type'        => 'string'
+						),
+					),
+				),
+			);
 		}
 	}
 }
