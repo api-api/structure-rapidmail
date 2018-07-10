@@ -28,10 +28,10 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 		 * @since 1.0.0
 		 */
 		protected function setup() {
-			$this->title         = 'Rapidmail API';
+			$this->title = 'Rapidmail API';
 
-			$this->description   = 'Allows to access and manage the data in your Rapidmail account.';
-			$this->base_uri      = 'https://apiv3.emailsys.net/v1/';
+			$this->description = 'Allows to access and manage the data in your Rapidmail account.';
+			$this->base_uri    = 'https://apiv3.emailsys.net/v1/';
 
 			$this->authenticator = 'basic';
 
@@ -42,7 +42,7 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'page'        => array(
+							'page' => array(
 								'description' => 'Page to load',
 								'type'        => 'integer',
 							)
@@ -121,7 +121,7 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'page'        => array(
+							'page' => array(
 								'description' => 'Page to load',
 								'type'        => 'integer',
 							),
@@ -132,113 +132,147 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'id'                      => array(
+							'id'                                             => array(
 								'description' => 'User Id (readOnly: true)',
-								'type'        => 'integer'
+								'type'        => 'integer',
+								'required'    => false,
 							),
-							'name'                    => array(
+							'name'                                           => array(
 								'description' => 'Name of the recipientlist (maxLength: 100)',
 								'type'        => 'string'
 							),
-							'description'             => array(
+							'description'                                    => array(
 								'description' => 'Description of recipientlist (maxLength: 10000)',
-								'type'        => 'integer'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_blacklist'   => array(
+							'unsubscribe_blacklist'                          => array(
 								'description' => 'Specify if recipients should be blacklisted upon unsubscription (example: yes, no)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'recipient_subscribe_email'   => array(
+							'recipient_subscribe_email'                      => array(
 								'description' => 'Specify if a welcome email should be sent on subscribe (example: yes, no)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_email_from'   => array(
+							'subscribe_confirmation_email_from'              => array(
 								'description' => 'From email address to use for recipientlist double-opt-in message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_email_subject'   => array(
+							'subscribe_confirmation_email_subject'           => array(
 								'description' => 'Subject to use for recipientlist double-opt-in message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_email_from_name'   => array(
+							'subscribe_confirmation_email_from_name'         => array(
 								'description' => 'From name to use for recipientlist double-opt-in message',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_email_body'   => array(
+							'subscribe_confirmation_email_body'              => array(
 								'description' => 'Text message body to use for recipientlist double-opt-in message (maxLength: 1500)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_email_body_html'   => array(
+							'subscribe_confirmation_email_body_html'         => array(
 								'description' => 'HTML message body to use for recipientlist double-opt-in message (maxLength: 30000)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_welcome_email_from'   => array(
+							'subscribe_confirmation_welcome_email_from'      => array(
 								'description' => 'From email address to use for recipientlist welcome message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_welcome_email_from_name'   => array(
+							'subscribe_confirmation_welcome_email_from_name' => array(
 								'description' => 'From name to use for recipientlist welcome message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
 							'subscribe_confirmation_welcome_email_subject'   => array(
 								'description' => 'Subject to use for recipientlist welcome message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_welcome_email_body'   => array(
+							'subscribe_confirmation_welcome_email_body'      => array(
 								'description' => 'Text message body to use for recipientlist welcome message (maxLength: 1500)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_confirmation_welcome_email_body_html'   => array(
+							'subscribe_confirmation_welcome_email_body_html' => array(
 								'description' => 'HTML message body to use for recipientlist welcome message (maxLength: 30000)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_confirmation_email_from'   => array(
+							'unsubscribe_confirmation_email_from'            => array(
 								'description' => 'From email address to use for recipientlist double-opt-out message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_confirmation_email_from_name'   => array(
+							'unsubscribe_confirmation_email_from_name'       => array(
 								'description' => 'From name to use for recipientlist double-opt-out message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_confirmation_email_subject'   => array(
+							'unsubscribe_confirmation_email_subject'         => array(
 								'description' => 'Subject to use for recipientlist double-opt-out message (maxLength: 255)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_confirmation_email_body'   => array(
+							'unsubscribe_confirmation_email_body'            => array(
 								'description' => 'Text message body to use for recipientlist double-opt-out message (maxLength: 1500)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_confirmation_email_body_html'   => array(
+							'unsubscribe_confirmation_email_body_html'       => array(
 								'description' => 'HTML nessage body to use for recipientlist goodbye message (maxLength: 30000)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_form_url'   => array(
+							'subscribe_form_url'                             => array(
 								'description' => 'URL of subscription form (readOnly: true)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'subscribe_form_field_key'   => array(
+							'subscribe_form_field_key'                       => array(
 								'description' => 'Field name for honeypot field (readOnly: true)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'unsubscribe_form_url'   => array(
+							'unsubscribe_form_url'                           => array(
 								'description' => 'URL of unsubscription form (readOnly: true)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'default'   => array(
+							'default'                                        => array(
 								'description' => 'Set recipientlist as default (example: yes, no)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'created'   => array(
+							'created'                                        => array(
 								'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'updated'   => array(
+							'updated'                                        => array(
 								'description' => 'Last modified datetime (example: 2017-01-01 12:00:00, readOnly: true)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
 						),
 					),
-				)
+				),
+			);
+
+			$this->routes['/recipientlists/(?P<id>[\\d]+)'] = array(
+				'methods' => array(
+					Method::DELETE  => array(
+						'description'          => 'Get recipient lists.',
+						'needs_authentication' => true,
+					),
+				),
 			);
 
 			$this->routes['/recipients'] = array(
@@ -248,219 +282,231 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'recipientlist_id'                  => array(
+							'recipientlist_id'     => array(
 								'description' => 'Recipientlist ID to get recipients from',
 								'type'        => 'integer'
 							),
-							'email'            => array(
+							'email'                => array(
 								'description' => 'Filter recipients by email address',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'foreign_id'            => array(
+							'foreign_id'           => array(
 								'description' => 'Filter recipients by foreign/external ID',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'page'         => array(
+							'page'                 => array(
 								'description' => 'Page to load',
-								'type'        => 'integer'
+								'type'        => 'integer',
+								'required'    => false,
 							),
-							'sort_by' => array(
+							'sort_by'              => array(
 								'description' => 'Field to sort by, can be activated, created or updated',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'sort_order'             => array(
+							'sort_order'           => array(
 								'description' => 'Order to sort in, can be asc or desc',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'status'             => array(
+							'status'               => array(
 								'description' => 'Filter by status. Can contain multiple values in comma-separated list (Available values: new, active, bounced, abused, deleted)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
-							'get_extra_big_fields'             => array(
+							'get_extra_big_fields' => array(
 								'description' => 'Filter by stIf specified, extrabig fields will be returned for each recipient (Default value: no)',
-								'type'        => 'string'
+								'type'        => 'string',
+								'required'    => false,
 							),
 						),
 					),
-				),
-				Method::POST => array(
-					'description'          => 'Create a new recipient.',
-					'needs_authentication' => true,
-					'request_data_type'    => 'json',
-					'params'               => array(
-						'id'                      => array(
-							'description' => 'User Id (readOnly: true)',
-							'type'        => 'integer',
-							'required'    => false,
-						),
-						'email'                      => array(
-							'description' => 'Email address',
-							'type'        => 'string'
-						),
-						'recipientlist_id'           => array(
-							'description' => 'Recipientlist ID the recipient is assigned to',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'firstname'           => array(
-							'description' => 'Firstname (maxLength: 255)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'lastname'           => array(
-							'description' => 'Lastname (maxLength: 255)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'gender'           => array(
-							'description' => 'Gender (Available values: male, female)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'title'           => array(
-							'description' => 'Title (academic)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'zip'           => array(
-							'description' => 'Zipcode (maxLength: 7)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'birthdate'           => array(
-							'description' => 'Birthdate (example: 1974-01-01T00:00:00.000Z)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'foreign_id'           => array(
-							'description' => 'Foreign/external ID of record (maxLength: 255)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'mailtype'           => array(
-							'description' => 'Mailtype specifying if recipient wants text or html email (Available values: text, html)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra1'           => array(
-							'description' => 'Extra 1 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra2'           => array(
-							'description' => 'Extra 2 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra3'           => array(
-							'description' => 'Extra 3 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra4'           => array(
-							'description' => 'Extra 4 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra5'           => array(
-							'description' => 'Extra 5 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra6'           => array(
-							'description' => 'Extra 6 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra7'           => array(
-							'description' => 'Extra 7 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra8'           => array(
-							'description' => 'Extra 8 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra9'           => array(
-							'description' => 'Extra 9 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extra10'           => array(
-							'description' => 'Extra 10 (maxLength: 100)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig1'           => array(
-							'description' => 'Extra big 1 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig2'           => array(
-							'description' => 'Extra big 2 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig3'           => array(
-							'description' => 'Extra big 3 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig4'           => array(
-							'description' => 'Extra big 4 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig5'           => array(
-							'description' => 'Extra big 5 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig6'           => array(
-							'description' => 'Extra big 6 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig7'           => array(
-							'description' => 'Extra big 7 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig8'           => array(
-							'description' => 'Extra big 8 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig9'           => array(
-							'description' => 'Extra big 9 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'extrabig10'           => array(
-							'description' => 'Extra big 10 (maxLength: 65535)',
-							'type'        => 'string',
-							'required'    => false,
-						),
-						'created'   => array(
-							'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
-							'type'        => 'string'
-						),
-						'created_ip'   => array(
-							'description' => 'IP address recipient was created from. Will default to current remote IP if not given',
-							'type'        => 'string'
-						),
-						'created_hostname'   => array(
-							'description' => 'Hostname recipient was created from. Will default to current remote host if not given',
-							'type'        => 'string'
-						),
-						'activated'   => array(
-							'description' => 'Datetime recipient was activated (example: 2017-01-01 12:00:00)',
-							'type'        => 'string'
-						),
-						'status'   => array(
-							'description' => 'Recipient status (Available values: new, active, deleted, bounced, abused, deleted - readOnly:true)',
-							'type'        => 'string'
+					Method::POST => array(
+						'description'          => 'Create a new recipient.',
+						'needs_authentication' => true,
+						'request_data_type'    => 'json',
+						'params'               => array(
+							'id'               => array(
+								'description' => 'User Id (readOnly: true)',
+								'type'        => 'integer',
+								'required'    => false,
+							),
+							'email'            => array(
+								'description' => 'Email address',
+								'type'        => 'string'
+							),
+							'recipientlist_id' => array(
+								'description' => 'Recipientlist ID the recipient is assigned to',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'firstname'        => array(
+								'description' => 'Firstname (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'lastname'         => array(
+								'description' => 'Lastname (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'gender'           => array(
+								'description' => 'Gender (Available values: male, female)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'title'            => array(
+								'description' => 'Title (academic)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'zip'              => array(
+								'description' => 'Zipcode (maxLength: 7)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'birthdate'        => array(
+								'description' => 'Birthdate (example: 1974-01-01T00:00:00.000Z)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'foreign_id'       => array(
+								'description' => 'Foreign/external ID of record (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'mailtype'         => array(
+								'description' => 'Mailtype specifying if recipient wants text or html email (Available values: text, html)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra1'           => array(
+								'description' => 'Extra 1 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra2'           => array(
+								'description' => 'Extra 2 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra3'           => array(
+								'description' => 'Extra 3 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra4'           => array(
+								'description' => 'Extra 4 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra5'           => array(
+								'description' => 'Extra 5 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra6'           => array(
+								'description' => 'Extra 6 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra7'           => array(
+								'description' => 'Extra 7 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra8'           => array(
+								'description' => 'Extra 8 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra9'           => array(
+								'description' => 'Extra 9 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extra10'          => array(
+								'description' => 'Extra 10 (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig1'        => array(
+								'description' => 'Extra big 1 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig2'        => array(
+								'description' => 'Extra big 2 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig3'        => array(
+								'description' => 'Extra big 3 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig4'        => array(
+								'description' => 'Extra big 4 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig5'        => array(
+								'description' => 'Extra big 5 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig6'        => array(
+								'description' => 'Extra big 6 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig7'        => array(
+								'description' => 'Extra big 7 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig8'        => array(
+								'description' => 'Extra big 8 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig9'        => array(
+								'description' => 'Extra big 9 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'extrabig10'       => array(
+								'description' => 'Extra big 10 (maxLength: 65535)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'created'          => array(
+								'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'created_ip'       => array(
+								'description' => 'IP address recipient was created from. Will default to current remote IP if not given',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'created_hostname' => array(
+								'description' => 'Hostname recipient was created from. Will default to current remote host if not given',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'activated'        => array(
+								'description' => 'Datetime recipient was activated (example: 2017-01-01 12:00:00)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'status'           => array(
+								'description' => 'Recipient status (Available values: new, active, deleted, bounced, abused, deleted - readOnly:true)',
+								'type'        => 'string',
+								'required'    => false,
+							),
 						),
 					),
 				),
