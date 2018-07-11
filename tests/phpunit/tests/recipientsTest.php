@@ -100,6 +100,12 @@ class RecipientTests extends Rapidmail_TestCase {
 		$this->delete_recipient();
 	}
 
+	/**
+	 * Testing PATCH parameters.
+	 *
+	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
+	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
+	 */
 	public function testPatch() {
 		$this->create_recipient();
 
