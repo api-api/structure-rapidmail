@@ -132,11 +132,6 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'id'                                             => array(
-								'description' => 'User Id (readOnly: true)',
-								'type'        => 'integer',
-								'required'    => false,
-							),
 							'name'                                           => array(
 								'description' => 'Name of the recipientlist (maxLength: 100)',
 								'type'        => 'string'
@@ -231,33 +226,8 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 								'type'        => 'string',
 								'required'    => false,
 							),
-							'subscribe_form_url'                             => array(
-								'description' => 'URL of subscription form (readOnly: true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
-							'subscribe_form_field_key'                       => array(
-								'description' => 'Field name for honeypot field (readOnly: true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
-							'unsubscribe_form_url'                           => array(
-								'description' => 'URL of unsubscription form (readOnly: true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
 							'default'                                        => array(
 								'description' => 'Set recipientlist as default (example: yes, no)',
-								'type'        => 'string',
-								'required'    => false,
-							),
-							'created'                                        => array(
-								'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
-							'updated'                                        => array(
-								'description' => 'Last modified datetime (example: 2017-01-01 12:00:00, readOnly: true)',
 								'type'        => 'string',
 								'required'    => false,
 							),
