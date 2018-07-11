@@ -275,6 +275,150 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'description'          => 'Delete a recipient list.',
 						'needs_authentication' => true,
 					),
+					Method::GET  => array(
+						'description'          => 'Get a recipient list.',
+						'needs_authentication' => true,
+					),
+					Method::PATCH => array(
+						'description'          => 'Creates a Rapidmail user.',
+						'needs_authentication' => true,
+						'request_data_type'    => 'json',
+						'params'               => array(
+							'name'                                           => array(
+								'description' => 'Name of the recipientlist (maxLength: 100)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'description'                                    => array(
+								'description' => 'Description of recipientlist (maxLength: 10000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_blacklist'                          => array(
+								'description' => 'Specify if recipients should be blacklisted upon unsubscription (example: yes, no)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'recipient_subscribe_email'                      => array(
+								'description' => 'Specify if a welcome email should be sent on subscribe (example: yes, no)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							/**
+							 * API does not validate following data correct
+							 */
+							/*
+							'subscribe_confirmation_email_from'              => array(
+								'description' => 'From email address to use for recipientlist double-opt-in message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_email_subject'           => array(
+								'description' => 'Subject to use for recipientlist double-opt-in message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_email_from_name'         => array(
+								'description' => 'From name to use for recipientlist double-opt-in message',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_email_body'              => array(
+								'description' => 'Text message body to use for recipientlist double-opt-in message (maxLength: 1500)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_email_body_html'         => array(
+								'description' => 'HTML message body to use for recipientlist double-opt-in message (maxLength: 30000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_welcome_email_from'      => array(
+								'description' => 'From email address to use for recipientlist welcome message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_welcome_email_from_name' => array(
+								'description' => 'From name to use for recipientlist welcome message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_welcome_email_subject'   => array(
+								'description' => 'Subject to use for recipientlist welcome message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_welcome_email_body'      => array(
+								'description' => 'Text message body to use for recipientlist welcome message (maxLength: 1500)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'subscribe_confirmation_welcome_email_body_html' => array(
+								'description' => 'HTML message body to use for recipientlist welcome message (maxLength: 30000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_email_from'            => array(
+								'description' => 'From email address to use for recipientlist double-opt-out message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_email_from_name'       => array(
+								'description' => 'From name to use for recipientlist double-opt-out message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_email_subject'         => array(
+								'description' => 'Subject to use for recipientlist double-opt-out message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_email_body'            => array(
+								'description' => 'Text message body to use for recipientlist double-opt-out message (maxLength: 1500)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_email_body_html'       => array(
+								'description' => 'HTML nessage body to use for recipientlist goodbye message (maxLength: 30000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_from'    => array(
+								'description' => 'From email address to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_from_name'       => array(
+								'description' => 'From name to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_subject'         => array(
+								'description' => 'Subject to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_body'            => array(
+								'description' => 'Text message body to use for recipientlist goodbye message (maxLength: 1500)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_body_html'       => array(
+								'description' => 'HTML message body to use for recipientlist goodbye message (maxLength: 30000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							*/
+							/**
+							 * End of not accepted data
+							 */
+							'default'                                        => array(
+								'description' => 'Set recipientlist as default (example: yes, no)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+						),
+					),
 				),
 			);
 
