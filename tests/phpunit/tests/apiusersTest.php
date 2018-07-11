@@ -3,7 +3,7 @@
 require_once dirname( dirname( __FILE__ ) ) . '/includes/bootstrap.php';
 
 class UsersTests extends Rapidmail_TestCase {
-	public function testGet() {
+	public function test_GET() {
 		$request = $this->apiapi->get_request_object( 'rapidmail', '/apiusers' );
 		$response = $this->apiapi->send_request( $request );
 

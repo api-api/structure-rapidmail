@@ -37,7 +37,7 @@ class RecipientTest extends Rapidmail_TestCase {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	public function testPost() {
+	public function test_POST() {
 		$response = $this->create_recipient();
 
 		$this->assertEquals( 201, $response->get_response_code() );
@@ -72,7 +72,7 @@ class RecipientTest extends Rapidmail_TestCase {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	public function testDelete() {
+	public function test_DELETE() {
 		$this->create_recipient();
 		$response = $this->delete_recipient();
 
@@ -85,7 +85,7 @@ class RecipientTest extends Rapidmail_TestCase {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	public function testGet() {
+	public function test_GET() {
 		$this->create_recipient();
 		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipients', 'GET' );
 		$request->set_param( 'recipientlist_id', $this->recipientlist_id );
@@ -106,7 +106,7 @@ class RecipientTest extends Rapidmail_TestCase {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	public function testPatch() {
+	public function test_PATCH() {
 		$this->create_recipient();
 
 		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipients/(?P<id>[\\d]+)', 'PATCH' );

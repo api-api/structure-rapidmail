@@ -11,7 +11,7 @@ class RecipientlistTest extends Rapidmail_TestCase {
 	 * @throws \APIAPI\Core\Exception\Invalid_Request_Exception
 	 * @throws \APIAPI\Core\Exception\Module_Not_Registered_Exception
 	 */
-	public function testPost() {
+	public function test_POST() {
 		$response = $this->create_recipientlist();
 
 		$this->assertEquals( 201, $response->get_response_code() );
@@ -21,5 +21,9 @@ class RecipientlistTest extends Rapidmail_TestCase {
 		$this->assertEquals( Data_Recipientlist::$unsubscribe_blacklist,  $response->get_param( 'unsubscribe_blacklist' ) );
 		$this->assertEquals( Data_Recipientlist::$recipient_subscribe_email,  $response->get_param( 'recipient_subscribe_email' ) );
 		$this->assertEquals( Data_Recipientlist::$default,  $response->get_param( 'default' ) );
+	}
+
+	public function test_GET() {
+
 	}
 }
