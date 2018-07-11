@@ -99,4 +99,18 @@ class RecipientTests extends Rapidmail_TestCase {
 		$this->assertEquals( 200, $response->get_response_code() );
 		$this->delete_recipient();
 	}
+
+	public function testPatch() {
+		$this->create_recipient();
+
+		$request = $this->apiapi->get_request_object( 'rapidmail', '/recipients/(?P<id>[\\d]+)', 'PATCH' );
+		$request->set_param( 'id', $this->recipient_id );
+		$request->set_param( 'firstname', 'Jan' );
+
+		$response = $this->apiapi->send_request( $request );
+		$this->assertEquals( 200, $response->get_response_code() );
+		$this->assertEquals( 'Jan', $response->get_param('firstname' ) );
+
+		$this->delete_recipient();
+	}
 }
