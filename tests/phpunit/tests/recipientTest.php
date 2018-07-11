@@ -2,7 +2,7 @@
 
 require_once dirname( dirname( __FILE__ ) ) . '/includes/bootstrap.php';
 
-class RecipientTests extends Rapidmail_TestCase {
+class RecipientTest extends Rapidmail_TestCase {
 	use Recipientlist, Recipient;
 
 	/**

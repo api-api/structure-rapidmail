@@ -151,6 +151,10 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 								'type'        => 'string',
 								'required'    => false,
 							),
+							/**
+							 * API does not validate following data correct
+							 */
+							/*
 							'subscribe_confirmation_email_from'              => array(
 								'description' => 'From email address to use for recipientlist double-opt-in message (maxLength: 255)',
 								'type'        => 'string',
@@ -226,6 +230,35 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 								'type'        => 'string',
 								'required'    => false,
 							),
+							'unsubscribe_confirmation_goodbye_email_from'    => array(
+								'description' => 'From email address to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_from_name'       => array(
+								'description' => 'From name to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_subject'         => array(
+								'description' => 'Subject to use for recipientlist goodbye message (maxLength: 255)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_body'            => array(
+								'description' => 'Text message body to use for recipientlist goodbye message (maxLength: 1500)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							'unsubscribe_confirmation_goodbye_email_body_html'       => array(
+								'description' => 'HTML message body to use for recipientlist goodbye message (maxLength: 30000)',
+								'type'        => 'string',
+								'required'    => false,
+							),
+							*/
+							/**
+							 * End of not accepted data
+							 */
 							'default'                                        => array(
 								'description' => 'Set recipientlist as default (example: yes, no)',
 								'type'        => 'string',
