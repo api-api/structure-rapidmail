@@ -269,7 +269,7 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 			$this->routes['/recipientlists/(?P<id>[\\d]+)'] = array(
 				'methods' => array(
 					Method::DELETE  => array(
-						'description'          => 'Get recipient lists.',
+						'description'          => 'Delete a recipient list.',
 						'needs_authentication' => true,
 					),
 				),
@@ -328,11 +328,6 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 						'needs_authentication' => true,
 						'request_data_type'    => 'json',
 						'params'               => array(
-							'id'               => array(
-								'description' => 'User Id (readOnly: true)',
-								'type'        => 'integer',
-								'required'    => false,
-							),
 							'email'            => array(
 								'description' => 'Email address',
 								'type'        => 'string'
@@ -482,11 +477,6 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 								'type'        => 'string',
 								'required'    => false,
 							),
-							'created'          => array(
-								'description' => 'Created datetime (example: 2017-01-01 12:00:00, readOnly: true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
 							'created_ip'       => array(
 								'description' => 'IP address recipient was created from. Will default to current remote IP if not given',
 								'type'        => 'string',
@@ -502,12 +492,16 @@ if ( ! class_exists( 'APIAPI\Structure_Rapidmail\Structure_Rapidmail' ) ) {
 								'type'        => 'string',
 								'required'    => false,
 							),
-							'status'           => array(
-								'description' => 'Recipient status (Available values: new, active, deleted, bounced, abused, deleted - readOnly:true)',
-								'type'        => 'string',
-								'required'    => false,
-							),
 						),
+					),
+				),
+			);
+
+			$this->routes['/recipients/(?P<id>[\\d]+)'] = array(
+				'methods' => array(
+					Method::DELETE  => array(
+						'description'          => 'Delete a recipient.',
+						'needs_authentication' => true,
 					),
 				),
 			);

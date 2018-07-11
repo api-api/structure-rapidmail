@@ -11,10 +11,14 @@ require_once $root_dir . '/src/Structure_Rapidmail/Structure_Rapidmail.php';
 require_once $root_dir . '/src/structure-rapidmail.php';
 
 
+require_once dirname(__FILE__ ) . '/data-recipient.php';
+require_once dirname(__FILE__ ) . '/data-recipientlist.php';
+
 require_once dirname(__FILE__ ) . '/test-structure-class.php';
 require_once dirname(__FILE__ ) . '/test-rapidmail-class.php';
 
-require_once dirname(__FILE__ ) . '/trait-recipient-list.php';
+require_once dirname( __FILE__ ) . '/trait-recipient.php';
+require_once dirname( __FILE__ ) . '/trait-recipientlist.php';
 
 // disable xdebug backtrace
 if ( function_exists( 'xdebug_disable' ) ) {
